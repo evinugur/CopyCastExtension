@@ -1,10 +1,6 @@
-function renderDOM(model) {
-	document.write(model.length);
-}
 
 
 window.addEventListener('DOMContentLoaded', function() {
-	debugger;
 	chrome.tabs.query({
 		active: true,
 		currentWindow: true
