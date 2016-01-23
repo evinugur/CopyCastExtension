@@ -1,3 +1,11 @@
+window['__onGCastApiAvailable'] = function(loaded, errorInfo) {
+  if (loaded) {
+    initializeCastApi();
+  } else {
+    console.log(errorInfo);
+  }
+};
+
 function renderDOM(model) {
   var tbody = $("#tableBody");
   model.forEach(function(x, i) {
