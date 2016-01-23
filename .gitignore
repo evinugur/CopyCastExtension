@@ -4,6 +4,7 @@ logs
 .backup
 bower_components/
 .DS_Store
+copycast.js
 npm-debug.log*
 copycast.js
 # Runtime data
