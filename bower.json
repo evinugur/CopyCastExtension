@@ -1,0 +1,23 @@
+{
+  "name": "CopyCastExtension",
+  "homepage": "https://github.com/CopyCast-HackWPI2016/CopyCastExtension",
+  "authors": [
+    "Evin Ugur <etugur@wpi.edu>"
+  ],
+  "description": "Copy Cast Chrome Extension for Hack WPI 2016",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.2.0",
+    "bootstrap": "~3.3.6",
+    "react": "~0.14.6"
+  }
+}
