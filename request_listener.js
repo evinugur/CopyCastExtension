@@ -1,37 +1,29 @@
 var media = {};
-
-chrome.webRequest.onBeforeRequest.addListener(function(details) {
-	if (!containsASubstring(details.url, VALID_CONTENT))
-		return;
-	console.log("adding ", details);
-	addRequestToSession(details);
-}, {
-	urls: ["<all_urls>"],
+var videoFilter = {
+	urls : ["<all_urls>"],
 	types: ["other", "object"]
-});
+};
 
-chrome.tabs.onRemoved.addListener(clobberTab);
+function clobberTab(id) { delete media["" + sender.tabId];}
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-	if (request === "init") {
-		clobberTab(sender.tab.id);
-	}
+	if (request === "init")
+		clobberTab(sender.tabId);
+
 });
-
-function clobberTab(tabId) { delete media[tabId]; }
-
+chrome.webRequest.onBeforeRequest.addListener(addRequestToSession, videoFilter);
+chrome.webRequest.onCompleted.addListener(addRequestToSession, videoFilter);
 function addRequestToSession(request) {
-	if (!media[request.tabId])
-		media[request.tabId] = [];
-	var urls = media[request.tabId].map(function(x) {return x.url;});
-	if (containsASubstring(request.url, urls))
+	if (!containsASubstring(request.url, VALID_CONTENT))
 		return;
-	media[request.tabId].push(request);
+	if (media[""])
+	// we can send it back to the page
+	chrome.tabs.sendMessage(request.tabId, request, function(resp) {
+		// ...
+	});
 }
 
 var VALID_CONTENT = [".mp4", ".flv", ".webm", ".m3u8"];
-
-
 
 function containsASubstring(string, array) {
 	for (var el in array) {
