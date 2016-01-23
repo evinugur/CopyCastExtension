@@ -19,6 +19,10 @@
 			"js" : ["content.js"]
 		}
 	],
+	"browser_action" : {
+		"default_title" : "CopyCast",
+		"default_popup" : "copycast.html"
+	},
 	"manifest_version": 2 
 }
  
