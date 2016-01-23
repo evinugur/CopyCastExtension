@@ -1,6 +1,9 @@
 # Logs
 logs
 *.log
+
+bower_components/
+
 npm-debug.log*
 
 # Runtime data
