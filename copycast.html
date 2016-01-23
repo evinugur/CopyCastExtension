@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href="bootstrap.min.css"/>
 </head>
 <body>
-<div>
-<h1>foobar</h1>
-<p>the quick brown fox!!!</p>
-<button id="foo">foo</button>
-</div>
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Video URL</th>
+					<th>Cast</th>
+				</tr>
+			</thead>
+			<tbody id="tableBody">
+			</tbody>
+		</table>
+	</div>
 </body>
-<script src ="copycast.js" type="text/javascript"></script>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="bootstrap.min.js"></script>
+<script type="text/javascript" src="copycast.js"></script>
 </html>
