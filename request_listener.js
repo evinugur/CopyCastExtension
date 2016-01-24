@@ -49,9 +49,7 @@ function addRequestToSession(request) {
 			useMobile: mobile
 		}
 	};
-	chrome.tabs.sendMessage(request.tabId, message, function(resp) {
-		// ...
-	});
+	chrome.tabs.sendMessage(request.tabId, message, function(resp) { /* ... */ });
 }
 
 function containsASubstring(string, array) {

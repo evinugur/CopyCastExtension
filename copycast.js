@@ -1,13 +1,15 @@
 function renderDOM(model) {
   var tbody = $("#tableBody");
   $("#mainTable")[model.messages.length ? "removeClass" : "addClass"]("hidden");
-  model.messages.forEach(function(x, i) {
+  
+  model.messages.reverse().forEach(function(x, i) {
     var tr = $("<tr>");
     var num = $("<td>");
     num.text(i + 1);
     tr.append(num);
     var videoUrl = anchor(x.url);
     videoUrl.append(btn('Preview'));
+    videoUrl.attr("title", x.url);
     var urlNode = $("<td>");
     urlNode.append(videoUrl);
     tr.append(urlNode);
