@@ -1,5 +1,4 @@
 var messages = [];
-chrome.runtime.sendMessage("init"); 
 chrome.runtime.sendMessage({
 		from : 'content',
 		subject : 'showPageAction',
