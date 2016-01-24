@@ -1,7 +1,7 @@
 var messages = [];
 chrome.runtime.sendMessage({
 		from : 'content',
-		subject : 'showPageAction',
+		subject : 'showPageAction'
 });
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 	// this is when you get a message from the backgrounsd
@@ -10,7 +10,15 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 });
 // listen for messages from the popup view 
 chrome.runtime.onMessage.addListener(function(msg, sender, resp) {
-	if (msg.from === 'popup' && msg.subject === 'DOMInfo') {
-		resp(messages);
+	if (msg.from === 'popup') {
+		if (msg.subject === 'DOMInfo') {
+			resp(messages);
+		} else if (msg.subject === 'Mobile') {
+			chrome.runtime.sendMessage({
+				from: 'content',
+				subject: 'mobileChange',
+				useMobile : msg.useMobile
+			});
+		}
 	}
 });

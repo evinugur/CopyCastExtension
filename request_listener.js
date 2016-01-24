@@ -4,9 +4,31 @@ var videoFilter = {
 	types: ["other", "object", "sub_frame"]
 };
 
+var mobile = false;
+
+chrome.webRequest.onBeforeSendHeaders.addListener(function(details){
+	var headers = details.requestHeaders;
+	if (mobile) {
+		for (var i = 0; i < headers.length; i++) {
+			if (headers[i].name === "User-Agent")
+				headers[i].value = "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8A293 Safari/6531.22.7";
+		}
+	}
+	return {
+		requestHeaders : headers
+	};
+}, {urls : ["<all_urls>"]}, ["requestHeaders", "blocking"]);
+
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-	if (request.from === 'content' && request.subject === 'showPageAction') {
+	if (request.from === 'content') {
+		if (request.subject === 'showPageAction') {
 		// init logic from content script
+		} else if (request.subject === 'mobileChange') {
+			mobile = request.useMobile;
+			chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+				chrome.tabs.executeScript(tabs[0].id, {code: 'window.location.reload(true);'});
+			});
+		}
 	}
 });
 
@@ -33,3 +55,4 @@ function containsASubstring(string, array) {
 	}
 	return false;
 }
+

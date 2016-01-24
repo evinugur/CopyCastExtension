@@ -35,6 +35,19 @@ function anchor(href) {
 }
 
 window.addEventListener('DOMContentLoaded', function () {
+  $("#mobileBtn").click(function(){
+    var useMobile = $("#mobileBox")[0].checked;
+    chrome.tabs.query({
+      active: true, currentWindow: true
+    }, function(tabs) {
+      chrome.tabs.sendMessage(tabs[0].id, {
+        from: 'popup',
+        subject: 'Mobile',
+        useMobile: useMobile
+      });
+    });
+  });
+  debugger;
   chrome.tabs.query({
     active: true,
     currentWindow: true

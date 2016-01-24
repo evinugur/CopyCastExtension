@@ -5,6 +5,7 @@
 	"author": "Evin Ugur (http://github.com/evinugur)",
 	"permissions": [ 
 		"webRequest",
+		"webRequestBlocking",
 		"webNavigation",
 		"tabs",
 		"<all_urls>"
