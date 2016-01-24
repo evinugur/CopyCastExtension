@@ -18,7 +18,9 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details){
 		requestHeaders : headers
 	};
 }, {urls : ["<all_urls>"]}, ["requestHeaders", "blocking"]);
-
+chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+    mobile = false;
+});
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 	if (request.from === 'content') {
 		if (request.subject === 'showPageAction') {
