@@ -6,7 +6,6 @@ logs
 bower_components/
 .DS_Store
 npm-debug.log*
-copycast.js
 # Runtime data
 pids
 *.pid
