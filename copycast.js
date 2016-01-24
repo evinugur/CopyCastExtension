@@ -1,5 +1,6 @@
 function renderDOM(model) {
   var tbody = $("#tableBody");
+  $("#mainTable")[model.messages.length ? "removeClass" : "addClass"]("hidden");
   model.messages.forEach(function(x, i) {
     var tr = $("<tr>");
     var num = $("<td>");
