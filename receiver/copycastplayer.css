@@ -1,1 +1,3 @@
 .progressBar{ background-color: green; } 
+.splash { background-image: url("https://raw.githubusercontent.com/CopyCast-HackWPI2016/CopyCastExtension/master/receiver/hackwpi.jpg");}
+.logo { background-image: url("https://raw.githubusercontent.com/CopyCast-HackWPI2016/CopyCastExtension/master/receiver/logo.jpeg"); }
