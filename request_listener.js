@@ -1,4 +1,4 @@
-var VALID_CONTENT = [".mp4", ".flv", ".webm", ".m3u8"];
+var VALID_CONTENT = [".mp4", ".webm", ".mp3", ".aac", ".wav"];
 var videoFilter = {
 	urls : ["<all_urls>"],
 	types: ["other", "object", "sub_frame"]
