@@ -1,6 +1,6 @@
 function renderDOM(model) {
   var tbody = $("#tableBody");
-  model.forEach(function(x, i) {
+  model.messages.forEach(function(x, i) {
     var tr = $("<tr>");
     var num = $("<td>");
     num.text(i + 1);
@@ -18,6 +18,7 @@ function renderDOM(model) {
     tr.append(btnNode);    
     tbody.append(tr);
   });
+  $("#mobileBox")[0].checked = model.useMobile;
 }
 
 function btn(text) {
@@ -47,7 +48,6 @@ window.addEventListener('DOMContentLoaded', function () {
       });
     });
   });
-  debugger;
   chrome.tabs.query({
     active: true,
     currentWindow: true

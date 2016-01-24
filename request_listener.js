@@ -22,7 +22,8 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details){
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 	if (request.from === 'content') {
 		if (request.subject === 'showPageAction') {
-		// init logic from content script
+			// init logic from content script
+			sendResponse(mobile);
 		} else if (request.subject === 'mobileChange') {
 			mobile = request.useMobile;
 			chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
@@ -41,7 +42,10 @@ function addRequestToSession(request) {
 	var message = {
 		from: 'request_listener',
 		subject: "contentFound",
-		payload: request
+		payload: {
+			request: request,
+			useMobile: mobile
+		}
 	};
 	chrome.tabs.sendMessage(request.tabId, message, function(resp) {
 		// ...
