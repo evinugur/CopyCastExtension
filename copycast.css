@@ -1,1 +1,5 @@
 .hidden { display: none; }
+body{ width: 600px; }
+#copyCastWrapper {margin: 5px 5px 5px 5px;}
+#mobileModeContainer, h1, td, th { text-align: center !important; }
+ 

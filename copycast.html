@@ -5,6 +5,8 @@
 	<link rel="stylesheet" href="copycast.css"/>
 </head>
 <body>
+<div id="copyCastWrapper">
+	<h1>CopyCast</h1>
 	<div class="table-responsive">
 		<table id="mainTable" class="table table-striped">
 			<thead>
@@ -20,17 +22,26 @@
 	</div>
 	<div>
 		<p>
-			Couldn't find what you were looking for? On a page with flash videos, CopyCast can load the page 
+			Couldn't find what you were looking for?
+		</p>
+		<p>
+			First, try clicking on the video you want to cast. Some websites defer the loading of content until a user invokes it.
+		</p>
+		<p>
+			Still nothing? On a page with flash videos, CopyCast can load the page 
 			as a mobile web browser and optimistically check to see if the web server at hand decides to serve something 
-			more mobile (and chromecast) friendly.
-			<br/>
-			<label>
-				<input type="checkbox" id="mobileBox">
-				Optimistically Try Mobile
-			</label>
-			<button class="btn btn-default" id="mobileBtn">Submit</button>
+			more mobile (and chromecast) friendly. This will work in most cases, we'll just pretend to be an iPhone so you can stream your stuff!
+			<br/><br/>
+			<div id="mobileModeContainer">
+				<label>
+					<input type="checkbox" id="mobileBox">
+					Use Mobile Mode
+				</label>
+				<button class="btn btn-default" id="mobileBtn">Submit</button>
+			<div>
 		</p>
 	</div>
+</div> 
 </body>
 <script type="text/javascript" src="jquery.min.js"></script>
 <script type="text/javascript" src="bootstrap.min.js"></script>
