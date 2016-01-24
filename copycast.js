@@ -5,17 +5,16 @@ function renderDOM(model) {
     var num = $("<td>");
     num.text(i + 1);
     tr.append(num);
-    var videoUrl = $("<a>");
-    videoUrl.attr("target", "_blank");
-    videoUrl.attr("href", x.url);
+    var videoUrl = anchor(x.url);
     videoUrl.append(btn('Preview'));
     var urlNode = $("<td>");
     urlNode.append(videoUrl);
     tr.append(urlNode);
     var btnNode = $("<td>");
     var btnCast = btn('Cast');
-    btnCast.addClass('castbtn');
-    btnNode.append(btnCast);
+    var castUrl = anchor('chrome-extension://' + chrome.runtime.id + '/player.html?url=' + x.url);
+    castUrl.append(btnCast);
+    btnNode.append(castUrl);
     tr.append(btnNode);    
     tbody.append(tr);
   });
@@ -26,6 +25,13 @@ function btn(text) {
   btn.addClass("btn btn-default");
   btn.text(text);
   return btn;
+}
+
+function anchor(href) {
+  var a = $("<a>");
+  a.attr("href", href);
+  a.attr("target", "_blank");
+  return a;
 }
 
 window.addEventListener('DOMContentLoaded', function () {

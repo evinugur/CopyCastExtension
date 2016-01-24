@@ -1,7 +1,7 @@
 var VALID_CONTENT = [".mp4", ".flv", ".webm", ".m3u8"];
 var videoFilter = {
 	urls : ["<all_urls>"],
-	types: ["other", "object"]
+	types: ["other", "object", "sub_frame"]
 };
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
