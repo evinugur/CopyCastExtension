@@ -1,0 +1,15 @@
+h1 {
+	text-align: center !important
+}
+
+.left {
+	float: left;
+}
+
+#urlInputBtn {
+	margin-left: 5px;
+	margin-top:20px;
+}
+.col-md-12 label {
+	width: 80%;
+}

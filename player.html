@@ -2,24 +2,36 @@
 <html>
 <head>
 	<title>CopyCast</title>
+	<link rel="stylesheet" href="bootstrap.min.css"/>
+	<link rel="stylesheet" href="player.css"/>
 </head>
 <body>
-	<div class= "site-wrapper">
-		<div class="site-wrapper-inner">
-			<div class="cover-container">
-				<!-- leave empty -->
-			</div>
+<div class="jumbotron">
+		<h1>CopyCast</h1>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<h2>Preview</h2>
+			<video id = "vidEl" controls></video>
 		</div>
-		<div class = "inner cover">
-			<h1>CastCat</h1>
-			<video id= "vidEl" controls></video>
-			<input type= "text"/>
+		<div class="col-md-4">
+			<h2>Cast</h2>
+			<p>Click the button below to cast the intercepted media</p>
+			<button class="btn btn-default" id="play">Cast</button>
 		</div>
-		<div class="mastfoot">
-			<p>footing</p>
-		</div>
-		<button id= "play">cast</button>
 	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<h2>Direct URL Input</h2>
+			<label class="left">
+				URL File
+				<input class="form-control" id="urlInputBox" type="text"/>
+			</label>
+			<button class="left btn btn-default" id="urlInputBtn">Load Custom Resource</button>
+		</div>
+	</div>
+</div>
 </body>
 <script type="text/javascript" src="jquery.min.js"></script>
 <script type="text/javascript" src="cast_sender.js"></script>
